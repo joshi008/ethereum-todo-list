@@ -1,4 +1,5 @@
 const Web3 = require('web3')
+
 App = {
     loading: false,
     contracts: {},
@@ -99,6 +100,7 @@ App = {
 
     createTask: async () => {
         App.setLoading(true)
+        web3.eth.defaultAccount = ethereum._state.accounts[0]
         const content = $('#newTask').val()
         await App.todoList.createTask(content)
         window.location.reload()
