@@ -108,6 +108,7 @@ App = {
 
     toggleCompleted: async (e) => {
         App.setLoading(true)
+        web3.eth.defaultAccount = ethereum._state.accounts[0]
         const taskId = e.target.name
         await App.todoList.toggleCompleted(taskId)
         window.location.reload()
